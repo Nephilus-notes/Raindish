@@ -8,8 +8,7 @@ namespace Raindish.Models
         public int Id { get; set; }
         [StringLength(60, MinimumLength = 3)]
         public string? Title { get; set; }
-        [Display(Name = "Prod Rec")]
-        [Required]
+        [Display(Name = "Prod Rec"), Required]
         public Boolean ProductionRecording { get; set; }
         [Display(Name = "Old Names")]
         public string? OldNames { get; set; }
@@ -20,6 +19,8 @@ namespace Raindish.Models
         public DateTime? Duration { get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$"), Required, StringLength(30)]
         public string? Genre { get; set; }
+        [Display(Name="Lyrics URL")]
+        public string? Lyrics { get; set; }
         [Display(Name = "Written on:"), DataType(DataType.Date)]
         public DateTime? Written { get; set; }    }
 }

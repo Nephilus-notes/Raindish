@@ -54,7 +54,11 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductionRecording)
+                @if (item.ProductionRecording)
+                    {
+                        @Html.DisplayFor(modelItem => item.ProductionRecording)
+                    }
+                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Key)
@@ -69,7 +73,10 @@
                 @Html.DisplayFor(modelItem => item.Written)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lyrics)
+                    @if (!String.IsNullOrEmpty(item.Lyrics))
+                    {
+                    <a href="@item.Lyrics" target="_blank">Link</a>                       
+                    }
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

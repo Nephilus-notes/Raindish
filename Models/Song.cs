@@ -12,7 +12,7 @@ namespace Raindish.Models
         public Boolean ProductionRecording { get; set; }
         [Display(Name = "Old Names")]
         public string? OldNames { get; set; }
-        [RegularExpression(@"^[A-G]\s+[A-Za-z]*$"), StringLength(7), Required]
+        [RegularExpression(@"^[A-G][#b]?\s+[A-Za-z]*?$"), StringLength(8), Required]
         public string? Key { get; set; }
         public int? Tempo { get; set; }
         [DataType(DataType.Time)]
@@ -21,6 +21,8 @@ namespace Raindish.Models
         public string? Genre { get; set; }
         [Display(Name="Lyrics URL")]
         public string? Lyrics { get; set; }
+        [Display(Name = "Done")]
+        public Boolean isDone { get; set; }
         [Display(Name = "Written on:"), DataType(DataType.Date)]
         public DateTime? Written { get; set; }    }
 }

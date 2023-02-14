@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Raindish.Data;
 
@@ -11,9 +12,11 @@ using Raindish.Data;
 namespace Raindish.Migrations
 {
     [DbContext(typeof(RaindishSongContext))]
-    partial class RaindishSongContextModelSnapshot : ModelSnapshot
+    [Migration("20230214220029_enabledKeySignatureToBe8CharactersLong")]
+    partial class enabledKeySignatureToBe8CharactersLong
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,9 +64,6 @@ namespace Raindish.Migrations
 
                     b.Property<DateTime?>("Written")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("isDone")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

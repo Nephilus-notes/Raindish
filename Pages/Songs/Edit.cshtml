@@ -24,6 +24,11 @@
                     <input class="form-check-input" asp-for="Song.ProductionRecording" /> @Html.DisplayNameFor(model => model.Song.ProductionRecording)
                 </label>
             </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Song.isDone" /> @Html.DisplayNameFor(model => model.Song.isDone)
+                </label>
+            </div>
             <div class="form-group">
                 <label asp-for="Song.OldNames" class="control-label"></label>
                 <input asp-for="Song.OldNames" class="form-control" />

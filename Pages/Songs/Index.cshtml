@@ -25,6 +25,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Song[0].isDone)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Song[0].Title)
             </th>
             <th>
@@ -39,9 +42,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Song[0].Genre)
             </th>
-            <th>
+@*            <th>
                 @Html.DisplayNameFor(model => model.Song[0].Written)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Song[0].Lyrics)
             </th>
@@ -51,6 +54,12 @@
 @foreach (var item in Model.Song) {
         <tr>
             <td>
+                @if (item.ProductionRecording)
+                    {
+                        @Html.DisplayFor(modelItem => item.isDone)
+                    }
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
@@ -58,7 +67,6 @@
                     {
                         @Html.DisplayFor(modelItem => item.ProductionRecording)
                     }
-                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Key)
@@ -69,13 +77,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Genre)
             </td>
-            <td>
+@*            <td>
                 @Html.DisplayFor(modelItem => item.Written)
-            </td>
+            </td>*@
             <td>
                     @if (!String.IsNullOrEmpty(item.Lyrics))
                     {
-                    <a href="@item.Lyrics" target="_blank">Link</a>                       
+                    <a href="@item.Lyrics" target="_blank">Lyrics</a>                       
                     }
             </td>
             <td>

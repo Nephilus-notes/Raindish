@@ -1,0 +1,83 @@
+﻿@page
+@model Raindish.Pages.Songs.IndexModel
+
+@{
+    ViewData["Title"] = "Song Repository";
+}
+
+<h1>Songs</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form>
+    <p>
+        <select asp-for="SongGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].ProductionRecording)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].OldNames)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Key)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Tempo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Written)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Song) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductionRecording)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.OldNames)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Key)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tempo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Written)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

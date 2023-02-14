@@ -1,0 +1,70 @@
+﻿@page "{id:int?}"
+@model Raindish.Pages.Songs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Song</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Song.Id" />
+            <div class="form-group">
+                <label asp-for="Song.Title" class="control-label"></label>
+                <input asp-for="Song.Title" class="form-control" />
+                <span asp-validation-for="Song.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Song.ProductionRecording" /> @Html.DisplayNameFor(model => model.Song.ProductionRecording)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.OldNames" class="control-label"></label>
+                <input asp-for="Song.OldNames" class="form-control" />
+                <span asp-validation-for="Song.OldNames" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Key" class="control-label"></label>
+                <input asp-for="Song.Key" class="form-control" />
+                <span asp-validation-for="Song.Key" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Tempo" class="control-label"></label>
+                <input asp-for="Song.Tempo" class="form-control" />
+                <span asp-validation-for="Song.Tempo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Duration" class="control-label"></label>
+                <input asp-for="Song.Duration" class="form-control" />
+                <span asp-validation-for="Song.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Genre" class="control-label"></label>
+                <input asp-for="Song.Genre" class="form-control" />
+                <span asp-validation-for="Song.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Written" class="control-label"></label>
+                <input asp-for="Song.Written" class="form-control" />
+                <span asp-validation-for="Song.Written" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

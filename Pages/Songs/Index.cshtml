@@ -25,10 +25,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Song[0].isDone)
+                @Html.DisplayNameFor(model => model.Song[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Song[0].Title)
+                @Html.DisplayNameFor(model => model.Song[0].isDone)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Song[0].ProductionRecording)
@@ -54,13 +54,13 @@
 @foreach (var item in Model.Song) {
         <tr>
             <td>
-                @if (item.ProductionRecording)
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @if (item.isDone)
                     {
                         @Html.DisplayFor(modelItem => item.isDone)
                     }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
                 @if (item.ProductionRecording)
